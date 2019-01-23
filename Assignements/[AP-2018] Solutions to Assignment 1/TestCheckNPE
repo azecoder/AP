@@ -1,0 +1,32 @@
+public class TestCheckNPE{
+    public static void main (String... args){
+	String [] arg = {"TestCheckNPE"};  
+	CheckNPE.main(arg);
+    }
+    public TestCheckNPE(){
+	/* Va invocato */
+	System.out.println("1 - Building the object...");
+    }
+    public TestCheckNPE(String s){
+	System.out.println("2 - Constructor not NPE sensible...");
+    }
+    public TestCheckNPE(Object s){
+	System.out.println("3 - Constructor  NPE sensible...");
+	s.toString();
+    }
+
+    public int testInt(int s){
+	System.out.println("*** - This should not be printed...");
+	return 42;
+    }
+
+    public int testAbs(String s){
+	System.out.println("4 - Method not NPE sensible...");
+	return 42;
+    }
+
+    public void testRound(Object s){
+	System.out.println("5 - Method  NPE sensible...");
+	s.toString();
+    }
+}
